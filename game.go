@@ -23,6 +23,7 @@ type Game struct {
 	player   []deck.Card
 	dealer   []deck.Card
 	dealerAi Player
+	balance  int
 }
 
 // New creates a new game
@@ -144,12 +145,16 @@ func endHand(gs *Game, pl Player) {
 	switch {
 	case pScore > 21:
 		fmt.Print("You busted\n\n")
+		gs.balance--
 	case dScore > 21:
 		fmt.Print("Dealer busted\n\n")
+		gs.balance++
 	case pScore > dScore:
 		fmt.Print("You win!\n\n")
+		gs.balance++
 	case dScore > pScore:
 		fmt.Print("You lose\n\n")
+		gs.balance--
 	case dScore == pScore:
 		fmt.Print("Draw\n\n")
 	}
