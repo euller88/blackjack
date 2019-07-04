@@ -13,16 +13,21 @@ type Player interface {
 	Summary(hand [][]deck.Card, dealer []deck.Card)
 }
 
-// HumanPlayer is the implementation of the Player interface to receive interactions from a real person, whatever it may be
-type HumanPlayer struct{}
+// HumanPlayer returns a Player "object" ready to receive human inputs
+func HumanPlayer() Player {
+	return humanPlayer{}
+}
+
+// humanPlayer is the implementation of the Player interface to receive interactions from a real person, whatever it may be
+type humanPlayer struct{}
 
 // Bet returns whatever the player whats to put at stake in the game
-func (pl HumanPlayer) Bet() int {
+func (pl humanPlayer) Bet() int {
 	return 1
 }
 
 // Play is the core function of that takes an input and decides what kind of move a player should make
-func (pl HumanPlayer) Play(hand []deck.Card, dealer deck.Card) Move {
+func (pl humanPlayer) Play(hand []deck.Card, dealer deck.Card) Move {
 	var input string
 	for {
 		fmt.Println("Player:", hand)
@@ -42,7 +47,7 @@ func (pl HumanPlayer) Play(hand []deck.Card, dealer deck.Card) Move {
 }
 
 // Summary gives the final state of a player
-func (pl HumanPlayer) Summary(hand [][]deck.Card, dealer []deck.Card) {
+func (pl humanPlayer) Summary(hand [][]deck.Card, dealer []deck.Card) {
 	fmt.Println("==FINAL HANDS==")
 	fmt.Println("Player:", hand)
 	fmt.Println("Dealer:", dealer)
