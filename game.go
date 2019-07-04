@@ -80,7 +80,7 @@ func (gs *Game) Play(pl Player) int {
 		endHand(gs, pl)
 	}
 
-	return 0
+	return gs.balance
 }
 
 func deal(gs *Game) {
