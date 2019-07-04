@@ -1,4 +1,4 @@
-module github.com/euller88/blackjack/v2
+module github.com/euller88/blackjack/v3
 
 go 1.12
 
