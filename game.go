@@ -56,7 +56,7 @@ func draw(cards []deck.Card) (deck.Card, []deck.Card) {
 }
 
 // Play is the core loop of execution of a game
-func (gs *Game) Play(pl Player) {
+func (gs *Game) Play(pl Player) int {
 	gs.deck = deck.New(deck.Deck(3), deck.Shuffle)
 
 	for i := 0; i < 10; i++ {
@@ -78,6 +78,8 @@ func (gs *Game) Play(pl Player) {
 
 		endHand(gs, pl)
 	}
+
+	return 0
 }
 
 func deal(gs *Game) {

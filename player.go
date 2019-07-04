@@ -51,6 +51,7 @@ func (pl humanPlayer) Summary(hand [][]deck.Card, dealer []deck.Card) {
 	fmt.Println("==FINAL HANDS==")
 	fmt.Println("Player:", hand)
 	fmt.Println("Dealer:", dealer)
+	fmt.Print("\n\n")
 }
 
 // Dealer is the implementation of the Player interface that represents a dealer in a blackjack game
